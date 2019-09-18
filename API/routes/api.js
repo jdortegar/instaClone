@@ -15,7 +15,7 @@ router.get('/:resource', (req, res) => {
 
 router.post('/signup', function(req, res) {
   turbo
-    .createUser('team', req.body)
+    .createUser('user', req.body)
     .then(data => {
       res.json({
         confirmation: 'success',

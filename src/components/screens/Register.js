@@ -23,6 +23,7 @@ class Register extends Component {
   };
 
   register = () => {
+    console.log(this.state.credentials);
     // Navigate Main Page
     fetch(config.baseUrl + 'signup', {
       method: 'POST',
@@ -32,10 +33,12 @@ class Register extends Component {
       },
       body: JSON.stringify(this.state.credentials)
     })
-      .then(data => alert(JSON.stringify(data)))
-      .catch(err => alert(err.message));
+      .then(response => response.json())
+      .then(jsonResponse => console.log(JSON.stringify(jsonResponse)))
+      .catch(err => console.log(err.message));
 
-    this.props.navigation.navigate('main');
+    console.log('herre');
+    // this.props.navigation.navigate('main');
   };
 
   render() {
